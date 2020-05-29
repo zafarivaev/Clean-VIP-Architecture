@@ -20,12 +20,26 @@ class TitlesView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Actions
+    public func reloadTableView() {
+        self.tableView.reloadData()
+    }
+    
+    public func insertRow(at index: Int, section: Int = 0) {
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath(
+            row: index,
+            section: section)
+        ], with: .automatic)
+        self.tableView.endUpdates()
+    }
+    
     // MARK: - Properties
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.rowHeight = 70
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
 }

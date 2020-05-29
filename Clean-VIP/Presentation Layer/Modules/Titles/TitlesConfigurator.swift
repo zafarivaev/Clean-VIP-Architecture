@@ -19,10 +19,13 @@ class TitlesConfiguratorImplementation: TitlesConfigurator {
         let router = TitlesRouterImplementation()
         let interactor = TitlesInteractorImplementation()
         let presenter = TitlesPresenterImplementation()
+        
         viewController.titlesView = view
         viewController.router = router
         viewController.interactor = interactor
+        
         interactor.presenter = presenter
+        
         presenter.viewController = viewController
     }
 }

@@ -16,6 +16,9 @@
 		1CCAC45F247CE372009AC08C /* TitlesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCAC45E247CE372009AC08C /* TitlesPresenter.swift */; };
 		1CCAC461247CE383009AC08C /* TitlesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCAC460247CE383009AC08C /* TitlesConfigurator.swift */; };
 		1CCAC463247CF7F5009AC08C /* TitlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCAC462247CF7F5009AC08C /* TitlesView.swift */; };
+		1CE9D684247D7B2E00C8AAF6 /* TitlesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D683247D7B2E00C8AAF6 /* TitlesService.swift */; };
+		1CEF92AE2480EF4200643631 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92AC2480EF4200643631 /* Model.xcdatamodeld */; };
+		1CEF92B02480FC5400643631 /* PersistentContainerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92AF2480FC5400643631 /* PersistentContainerProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		1CCAC45E247CE372009AC08C /* TitlesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesPresenter.swift; sourceTree = "<group>"; };
 		1CCAC460247CE383009AC08C /* TitlesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesConfigurator.swift; sourceTree = "<group>"; };
 		1CCAC462247CF7F5009AC08C /* TitlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesView.swift; sourceTree = "<group>"; };
+		1CE9D683247D7B2E00C8AAF6 /* TitlesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesService.swift; sourceTree = "<group>"; };
+		1CEF92AD2480EF4200643631 /* Title.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Title.xcdatamodel; sourceTree = "<group>"; };
+		1CEF92AF2480FC5400643631 /* PersistentContainerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainerProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +60,7 @@
 		1C390277247CDFD200797273 /* Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
-				1CCAC462247CF7F5009AC08C /* TitlesView.swift */,
-				1C4818C1247CDF03001B0324 /* TitlesViewController.swift */,
-				1CCAC45A247CE363009AC08C /* TitlesRouter.swift */,
-				1CCAC45C247CE36B009AC08C /* TitlesInteractor.swift */,
-				1CCAC45E247CE372009AC08C /* TitlesPresenter.swift */,
-				1CCAC460247CE383009AC08C /* TitlesConfigurator.swift */,
+				1CCAC465247D6A36009AC08C /* Modules */,
 			);
 			path = "Presentation Layer";
 			sourceTree = "<group>";
@@ -67,6 +68,7 @@
 		1C390278247CDFDA00797273 /* Business Logic Layer */ = {
 			isa = PBXGroup;
 			children = (
+				1CE9D67D247D6D4700C8AAF6 /* Services */,
 			);
 			path = "Business Logic Layer";
 			sourceTree = "<group>";
@@ -74,6 +76,7 @@
 		1C390279247CDFE100797273 /* Core Layer */ = {
 			isa = PBXGroup;
 			children = (
+				1CE9D680247D733E00C8AAF6 /* Storage */,
 			);
 			path = "Core Layer";
 			sourceTree = "<group>";
@@ -114,6 +117,52 @@
 				1C4818CB247CDF06001B0324 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CCAC465247D6A36009AC08C /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				1CCAC466247D6A3D009AC08C /* Titles */,
+				1CCAC467247D6A4A009AC08C /* Title Detail */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		1CCAC466247D6A3D009AC08C /* Titles */ = {
+			isa = PBXGroup;
+			children = (
+				1CCAC462247CF7F5009AC08C /* TitlesView.swift */,
+				1C4818C1247CDF03001B0324 /* TitlesViewController.swift */,
+				1CCAC45C247CE36B009AC08C /* TitlesInteractor.swift */,
+				1CCAC45E247CE372009AC08C /* TitlesPresenter.swift */,
+				1CCAC45A247CE363009AC08C /* TitlesRouter.swift */,
+				1CCAC460247CE383009AC08C /* TitlesConfigurator.swift */,
+			);
+			path = Titles;
+			sourceTree = "<group>";
+		};
+		1CCAC467247D6A4A009AC08C /* Title Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Title Detail";
+			sourceTree = "<group>";
+		};
+		1CE9D67D247D6D4700C8AAF6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1CE9D683247D7B2E00C8AAF6 /* TitlesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1CE9D680247D733E00C8AAF6 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				1CEF92AC2480EF4200643631 /* Model.xcdatamodeld */,
+				1CEF92AF2480FC5400643631 /* PersistentContainerProvider.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,12 +235,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CEF92AE2480EF4200643631 /* Model.xcdatamodeld in Sources */,
 				1C4818C2247CDF03001B0324 /* TitlesViewController.swift in Sources */,
 				1CCAC463247CF7F5009AC08C /* TitlesView.swift in Sources */,
 				1CCAC45F247CE372009AC08C /* TitlesPresenter.swift in Sources */,
+				1CEF92B02480FC5400643631 /* PersistentContainerProvider.swift in Sources */,
 				1CCAC45D247CE36B009AC08C /* TitlesInteractor.swift in Sources */,
 				1CCAC461247CE383009AC08C /* TitlesConfigurator.swift in Sources */,
 				1C4818BE247CDF03001B0324 /* AppDelegate.swift in Sources */,
+				1CE9D684247D7B2E00C8AAF6 /* TitlesService.swift in Sources */,
 				1CCAC45B247CE363009AC08C /* TitlesRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +436,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1CEF92AC2480EF4200643631 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1CEF92AD2480EF4200643631 /* Title.xcdatamodel */,
+			);
+			currentVersion = 1CEF92AD2480EF4200643631 /* Title.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1C4818B2247CDF03001B0324 /* Project object */;
 }

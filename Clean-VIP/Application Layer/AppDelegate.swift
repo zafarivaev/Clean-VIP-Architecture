@@ -17,10 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let titlesViewController = TitlesViewController()
+        let navigationController = UINavigationController(rootViewController: titlesViewController)
         titlesConfigurator.configure(viewController: titlesViewController)
         
         window = UIWindow()
-        window?.rootViewController = titlesViewController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
         return true
