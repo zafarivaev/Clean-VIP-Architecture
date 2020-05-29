@@ -6,12 +6,21 @@
 //  Copyright © 2020 Zafar. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol TitlesRouter: class {
+    var navigationController: UINavigationController? { get }
     
+    func routeToDetail(with id: String)
 }
 
 class TitlesRouterImplementation: TitlesRouter {
+    weak var navigationController: UINavigationController?
     
+    func routeToDetail(with id: String) {
+        let viewController = TitleDetailViewController()
+        TitleDetailConfigurator.configure(viewController: viewController)
+        
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }

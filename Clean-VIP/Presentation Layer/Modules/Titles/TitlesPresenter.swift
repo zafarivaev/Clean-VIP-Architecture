@@ -14,6 +14,8 @@ protocol TitlesPresenter: class {
     
     func interactor(didAddTitle title: Title)
     func interactor(didFailAddTitle error: Error)
+    
+    func interactor(didFindTitle title: Title)
 }
 
 class TitlesPresenterImplementation: TitlesPresenter {
@@ -21,20 +23,26 @@ class TitlesPresenterImplementation: TitlesPresenter {
     
     func interactor(didRetrieveTitles titles: [Title]) {
         let titlesStrings = titles.compactMap { $0.text }
-        viewController?.presenter(self, didRetrieveItems: titlesStrings)
+        viewController?.presenter(didRetrieveItems: titlesStrings)
     }
     
     func interactor(didFailRetrieveTitles error: Error) {
-        viewController?.presenter(self, didFailRetrieveItems: error.localizedDescription)
+        viewController?.presenter(didFailRetrieveItems: error.localizedDescription)
     }
     
     func interactor(didAddTitle title: Title) {
         if let titleString = title.text {
-            viewController?.presenter(self, didAddItem: titleString)
+            viewController?.presenter(didAddItem: titleString)
         }
     }
     
     func interactor(didFailAddTitle error: Error) {
-        viewController?.presenter(self, didFailAddItem: error.localizedDescription)
+        viewController?.presenter(didFailAddItem: error.localizedDescription)
+    }
+    
+    func interactor(didFindTitle title: Title) {
+        if let id = title.id {
+            viewController?.presenter(didObtainItemId: id)
+        }
     }
 }

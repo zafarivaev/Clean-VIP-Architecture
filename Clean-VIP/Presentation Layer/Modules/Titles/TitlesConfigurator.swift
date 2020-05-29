@@ -8,13 +8,9 @@
 
 import UIKit
 
-protocol TitlesConfigurator: class {
-    func configure(viewController: TitlesViewController)
-}
-
-class TitlesConfiguratorImplementation: TitlesConfigurator {
+class TitlesConfigurator {
     
-    func configure(viewController: TitlesViewController) {
+    static func configure(viewController: TitlesViewController) {
         let view = TitlesView()
         let router = TitlesRouterImplementation()
         let interactor = TitlesInteractorImplementation()
@@ -27,5 +23,7 @@ class TitlesConfiguratorImplementation: TitlesConfigurator {
         interactor.presenter = presenter
         
         presenter.viewController = viewController
+        
+        router.navigationController = viewController.navigationController
     }
 }

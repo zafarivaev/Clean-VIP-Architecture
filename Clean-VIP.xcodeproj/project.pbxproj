@@ -19,6 +19,12 @@
 		1CE9D684247D7B2E00C8AAF6 /* TitlesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D683247D7B2E00C8AAF6 /* TitlesService.swift */; };
 		1CEF92AE2480EF4200643631 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92AC2480EF4200643631 /* Model.xcdatamodeld */; };
 		1CEF92B02480FC5400643631 /* PersistentContainerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92AF2480FC5400643631 /* PersistentContainerProvider.swift */; };
+		1CEF92B32481760700643631 /* TitleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92B22481760700643631 /* TitleDetailView.swift */; };
+		1CEF92B52481761100643631 /* TitleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92B42481761100643631 /* TitleDetailViewController.swift */; };
+		1CEF92B72481762800643631 /* TitleDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92B62481762800643631 /* TitleDetailInteractor.swift */; };
+		1CEF92B92481763000643631 /* TitleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92B82481763000643631 /* TitleDetailPresenter.swift */; };
+		1CEF92BB2481763700643631 /* TitleDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92BA2481763700643631 /* TitleDetailRouter.swift */; };
+		1CEF92BD2481764000643631 /* TitleDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92BC2481764000643631 /* TitleDetailConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +42,12 @@
 		1CE9D683247D7B2E00C8AAF6 /* TitlesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesService.swift; sourceTree = "<group>"; };
 		1CEF92AD2480EF4200643631 /* Title.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Title.xcdatamodel; sourceTree = "<group>"; };
 		1CEF92AF2480FC5400643631 /* PersistentContainerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainerProvider.swift; sourceTree = "<group>"; };
+		1CEF92B22481760700643631 /* TitleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailView.swift; sourceTree = "<group>"; };
+		1CEF92B42481761100643631 /* TitleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailViewController.swift; sourceTree = "<group>"; };
+		1CEF92B62481762800643631 /* TitleDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailInteractor.swift; sourceTree = "<group>"; };
+		1CEF92B82481763000643631 /* TitleDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailPresenter.swift; sourceTree = "<group>"; };
+		1CEF92BA2481763700643631 /* TitleDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailRouter.swift; sourceTree = "<group>"; };
+		1CEF92BC2481764000643631 /* TitleDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,7 @@
 		1C390278247CDFDA00797273 /* Business Logic Layer */ = {
 			isa = PBXGroup;
 			children = (
+				1CEF92B12481758200643631 /* Entities */,
 				1CE9D67D247D6D4700C8AAF6 /* Services */,
 			);
 			path = "Business Logic Layer";
@@ -144,6 +157,12 @@
 		1CCAC467247D6A4A009AC08C /* Title Detail */ = {
 			isa = PBXGroup;
 			children = (
+				1CEF92B22481760700643631 /* TitleDetailView.swift */,
+				1CEF92B42481761100643631 /* TitleDetailViewController.swift */,
+				1CEF92B62481762800643631 /* TitleDetailInteractor.swift */,
+				1CEF92B82481763000643631 /* TitleDetailPresenter.swift */,
+				1CEF92BA2481763700643631 /* TitleDetailRouter.swift */,
+				1CEF92BC2481764000643631 /* TitleDetailConfigurator.swift */,
 			);
 			path = "Title Detail";
 			sourceTree = "<group>";
@@ -159,10 +178,17 @@
 		1CE9D680247D733E00C8AAF6 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				1CEF92AC2480EF4200643631 /* Model.xcdatamodeld */,
 				1CEF92AF2480FC5400643631 /* PersistentContainerProvider.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		1CEF92B12481758200643631 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				1CEF92AC2480EF4200643631 /* Model.xcdatamodeld */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,13 +261,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CEF92BD2481764000643631 /* TitleDetailConfigurator.swift in Sources */,
 				1CEF92AE2480EF4200643631 /* Model.xcdatamodeld in Sources */,
 				1C4818C2247CDF03001B0324 /* TitlesViewController.swift in Sources */,
+				1CEF92B52481761100643631 /* TitleDetailViewController.swift in Sources */,
 				1CCAC463247CF7F5009AC08C /* TitlesView.swift in Sources */,
 				1CCAC45F247CE372009AC08C /* TitlesPresenter.swift in Sources */,
 				1CEF92B02480FC5400643631 /* PersistentContainerProvider.swift in Sources */,
+				1CEF92B92481763000643631 /* TitleDetailPresenter.swift in Sources */,
 				1CCAC45D247CE36B009AC08C /* TitlesInteractor.swift in Sources */,
+				1CEF92B72481762800643631 /* TitleDetailInteractor.swift in Sources */,
 				1CCAC461247CE383009AC08C /* TitlesConfigurator.swift in Sources */,
+				1CEF92B32481760700643631 /* TitleDetailView.swift in Sources */,
+				1CEF92BB2481763700643631 /* TitleDetailRouter.swift in Sources */,
 				1C4818BE247CDF03001B0324 /* AppDelegate.swift in Sources */,
 				1CE9D684247D7B2E00C8AAF6 /* TitlesService.swift in Sources */,
 				1CCAC45B247CE363009AC08C /* TitlesRouter.swift in Sources */,
@@ -384,6 +416,7 @@
 				DEVELOPMENT_TEAM = MJWVGRX9VD;
 				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
 				INFOPLIST_FILE = "Clean-VIP/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -403,6 +436,7 @@
 				DEVELOPMENT_TEAM = MJWVGRX9VD;
 				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
 				INFOPLIST_FILE = "Clean-VIP/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

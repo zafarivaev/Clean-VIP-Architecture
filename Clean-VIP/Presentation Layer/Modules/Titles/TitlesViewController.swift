@@ -9,11 +9,14 @@
 import UIKit
 
 protocol TitlesPresenterOutput: class {
-    func presenter(_ presenter: TitlesPresenter, didRetrieveItems items: [String])
-    func presenter(_ presenter: TitlesPresenter, didFailRetrieveItems message: String)
+    func presenter(didRetrieveItems items: [String])
+    func presenter(didFailRetrieveItems message: String)
     
-    func presenter(_ presenter: TitlesPresenter, didAddItem item: String)
-    func presenter(_ presenter: TitlesPresenter, didFailAddItem message: String)
+    func presenter(didAddItem item: String)
+    func presenter(didFailAddItem message: String)
+    
+    func presenter(didObtainItemId id: String)
+    func presenter(didFailObtainItemId message: String)
 }
 
 class TitlesViewController: UIViewController {
@@ -91,22 +94,31 @@ class TitlesViewController: UIViewController {
 // MARK: - Presenter Output
 extension TitlesViewController: TitlesPresenterOutput {
     
-    func presenter(_ presenter: TitlesPresenter, didRetrieveItems items: [String]) {
+    func presenter(didRetrieveItems items: [String]) {
         self.items = items
         self.titlesView?.reloadTableView()
     }
     
-    func presenter(_ presenter: TitlesPresenter, didFailRetrieveItems message: String) {
+    func presenter(didFailRetrieveItems message: String) {
         // Show error alert
         print(message)
     }
     
-    func presenter(_ presenter: TitlesPresenter, didAddItem item: String) {
+    func presenter(didAddItem item: String) {
         self.items.append(item)
         self.titlesView?.insertRow(at: self.items.count - 1)
     }
     
-    func presenter(_ presenter: TitlesPresenter, didFailAddItem message: String) {
+    func presenter(didFailAddItem message: String) {
+        // Show error alert
+        print(message)
+    }
+    
+    func presenter(didObtainItemId id: String) {
+        self.router?.routeToDetail(with: id)
+    }
+    
+    func presenter(didFailObtainItemId message: String) {
         // Show error alert
         print(message)
     }
@@ -130,5 +142,9 @@ extension TitlesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = self.items[indexPath.row]
         cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.interactor?.didSelectRow(at: indexPath.row)
     }
 }

@@ -39,6 +39,7 @@ class TitlesServiceImplementation: TitlesService {
     func addTitle(text: String) throws -> Title {
         let title = NSEntityDescription.insertNewObject(forEntityName: "Title", into: managedContext) as! Title
         title.text = text
+        title.id = UUID().uuidString
         
         do {
             try managedContext.save()

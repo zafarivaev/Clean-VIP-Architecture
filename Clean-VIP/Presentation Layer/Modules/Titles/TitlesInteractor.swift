@@ -13,17 +13,21 @@ protocol TitlesInteractor: class {
     
     func viewDidLoad()
     func addTapped(with text: String)
+    
+    func didSelectRow(at index: Int)
 }
 
 class TitlesInteractorImplementation: TitlesInteractor {
     var presenter: TitlesPresenter?
     
     private let titlesService = TitlesServiceImplementation()
+    private var titles: [Title] = []
     
     func viewDidLoad()  {
         do {
-            let titles = try titlesService.getTitles()
-            presenter?.interactor(didRetrieveTitles: titles)
+            self.titles = try titlesService.getTitles()
+            
+            presenter?.interactor(didRetrieveTitles: self.titles)
         } catch {
             presenter?.interactor(didFailRetrieveTitles: error)
         }
@@ -32,9 +36,17 @@ class TitlesInteractorImplementation: TitlesInteractor {
     func addTapped(with text: String) {
         do {
             let title = try titlesService.addTitle(text: text)
+            self.titles.append(title)
+            
             presenter?.interactor(didAddTitle: title)
         } catch {
             presenter?.interactor(didFailAddTitle: error)
+        }
+    }
+    
+    func didSelectRow(at index: Int) {
+        if self.titles.indices.contains(index) {
+            presenter?.interactor(didFindTitle: self.titles[index])
         }
     }
 }
