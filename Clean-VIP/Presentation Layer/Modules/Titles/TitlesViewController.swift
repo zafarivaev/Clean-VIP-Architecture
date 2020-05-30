@@ -46,7 +46,7 @@ class TitlesViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = addBarButtonItem
     }
     
-    // MARK: - Actions
+    // MARK: - Actions    
     @objc func addBarButtonItemTapped() {
         let alert = UIAlertController(
             title: "Add a new title",
@@ -103,8 +103,7 @@ extension TitlesViewController: TitlesPresenterOutput {
     }
     
     func presenter(didFailRetrieveItems message: String) {
-        // Show error alert
-        print(message)
+        showError(with: message)
     }
     
     func presenter(didAddItem item: String) {
@@ -113,8 +112,7 @@ extension TitlesViewController: TitlesPresenterOutput {
     }
     
     func presenter(didFailAddItem message: String) {
-        // Show error alert
-        print(message)
+        showError(with: message)
     }
     
     func presenter(didDeleteItemAtIndex index: Int) {
@@ -123,8 +121,7 @@ extension TitlesViewController: TitlesPresenterOutput {
     }
     
     func presenter(didFailDeleteItemAtIndex index: Int, message: String) {
-        // Show error alert
-        print(message)
+        showError(with: message)
     }
     
     func presenter(didObtainItemId id: String) {
@@ -132,8 +129,7 @@ extension TitlesViewController: TitlesPresenterOutput {
     }
     
     func presenter(didFailObtainItemId message: String) {
-        // Show error alert
-        print(message)
+        showError(with: message)
     }
 }
 

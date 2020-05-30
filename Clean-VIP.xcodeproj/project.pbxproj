@@ -25,6 +25,7 @@
 		1CEF92B92481763000643631 /* TitleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92B82481763000643631 /* TitleDetailPresenter.swift */; };
 		1CEF92BB2481763700643631 /* TitleDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92BA2481763700643631 /* TitleDetailRouter.swift */; };
 		1CEF92BD2481764000643631 /* TitleDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92BC2481764000643631 /* TitleDetailConfigurator.swift */; };
+		1CEF92BF2482B6F300643631 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF92BE2482B6F300643631 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		1CEF92B82481763000643631 /* TitleDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailPresenter.swift; sourceTree = "<group>"; };
 		1CEF92BA2481763700643631 /* TitleDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailRouter.swift; sourceTree = "<group>"; };
 		1CEF92BC2481764000643631 /* TitleDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailConfigurator.swift; sourceTree = "<group>"; };
+		1CEF92BE2482B6F300643631 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		1C4818D1247CDF2F001B0324 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1CEF92BE2482B6F300643631 /* Extensions.swift */,
 				1C4818C6247CDF06001B0324 /* Assets.xcassets */,
 				1C4818C8247CDF06001B0324 /* LaunchScreen.storyboard */,
 				1C4818CB247CDF06001B0324 /* Info.plist */,
@@ -275,6 +278,7 @@
 				1CEF92B32481760700643631 /* TitleDetailView.swift in Sources */,
 				1CEF92BB2481763700643631 /* TitleDetailRouter.swift in Sources */,
 				1C4818BE247CDF03001B0324 /* AppDelegate.swift in Sources */,
+				1CEF92BF2482B6F300643631 /* Extensions.swift in Sources */,
 				1CE9D684247D7B2E00C8AAF6 /* TitlesService.swift in Sources */,
 				1CCAC45B247CE363009AC08C /* TitlesRouter.swift in Sources */,
 			);

@@ -45,7 +45,6 @@ extension TitleDetailViewController: TitleDetailPresenterOutput {
     }
     
     func presenter(didFailRetrieveItem message: String) {
-        // Show alert
-        print(message)
+        showError(with: message)
     }
 }
