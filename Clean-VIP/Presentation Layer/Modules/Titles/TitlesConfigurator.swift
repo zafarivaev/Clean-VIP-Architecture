@@ -10,7 +10,7 @@ import UIKit
 
 class TitlesConfigurator {
     
-    static func configure(viewController: TitlesViewController) {
+    static func configureModule(viewController: TitlesViewController) {
         let view = TitlesView()
         let router = TitlesRouterImplementation()
         let interactor = TitlesInteractorImplementation()

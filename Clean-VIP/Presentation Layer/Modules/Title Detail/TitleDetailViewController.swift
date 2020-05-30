@@ -9,7 +9,8 @@
 import UIKit
 
 protocol TitleDetailPresenterOutput: class {
-    
+    func presenter(didRetrieveItem item: String)
+    func presenter(didFailRetrieveItem message: String)
 }
 
 class TitleDetailViewController: UIViewController {
@@ -22,6 +23,7 @@ class TitleDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.interactor?.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,5 +40,12 @@ class TitleDetailViewController: UIViewController {
 
 // MARK: - Presenter Output
 extension TitleDetailViewController: TitleDetailPresenterOutput {
+    func presenter(didRetrieveItem item: String) {
+        titleDetailView?.updateLabel(with: item)
+    }
     
+    func presenter(didFailRetrieveItem message: String) {
+        // Show alert
+        print(message)
+    }
 }

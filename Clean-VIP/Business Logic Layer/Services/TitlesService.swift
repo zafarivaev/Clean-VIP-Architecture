@@ -11,6 +11,7 @@ import CoreData
 protocol TitlesService: class {
     func getTitles() throws -> [Title]
     func addTitle(text: String) throws -> Title
+    func getTitle(with id: String) throws -> Title?
 }
 
 class TitlesServiceImplementation: TitlesService {
@@ -20,7 +21,7 @@ class TitlesServiceImplementation: TitlesService {
     }()
     
     func getTitles() throws -> [Title] {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Title")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Title")
         
         do {
             let result = try managedContext.fetch(fetchRequest)
@@ -48,5 +49,24 @@ class TitlesServiceImplementation: TitlesService {
         }
         
         return title
+    }
+    
+    func getTitle(with id: String) throws -> Title? {
+        let predicate = NSPredicate(format: "id = %@", id)
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Title")
+        fetchRequest.predicate = predicate
+        
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            
+            if let title = result.first as? Title  {
+                return title
+            }
+        } catch {
+            print("Couldn't get title")
+        }
+        
+        return nil
     }
 }

@@ -19,7 +19,8 @@ class TitlesRouterImplementation: TitlesRouter {
     
     func routeToDetail(with id: String) {
         let viewController = TitleDetailViewController()
-        TitleDetailConfigurator.configure(viewController: viewController)
+        TitleDetailConfigurator.configureModule(titleId: id,
+                                                viewController: viewController)
         
         navigationController?.pushViewController(viewController, animated: true)
     }

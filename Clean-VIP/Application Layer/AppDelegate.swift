@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let titlesViewController = TitlesViewController()
         let navigationController = UINavigationController(rootViewController: titlesViewController)
-        TitlesConfigurator.configure(viewController: titlesViewController)
+        TitlesConfigurator.configureModule(viewController: titlesViewController)
         
         window = UIWindow()
         window?.rootViewController = navigationController
