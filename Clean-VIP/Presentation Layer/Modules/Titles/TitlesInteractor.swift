@@ -14,6 +14,8 @@ protocol TitlesInteractor: class {
     func viewDidLoad()
     func addTapped(with text: String)
     
+    func didCommitDelete(for index: Int)
+    
     func didSelectRow(at index: Int)
 }
 
@@ -41,6 +43,16 @@ class TitlesInteractorImplementation: TitlesInteractor {
             presenter?.interactor(didAddTitle: title)
         } catch {
             presenter?.interactor(didFailAddTitle: error)
+        }
+    }
+    
+    func didCommitDelete(for index: Int) {
+        do {
+            try titlesService.deleteTitle(with: self.titles[index].id!)
+            self.titles.remove(at: index)
+            presenter?.interactor(didDeleteTitleAtIndex: index)
+        } catch {
+            presenter?.interactor(didFailDeleteTitleAtIndex: index)
         }
     }
     

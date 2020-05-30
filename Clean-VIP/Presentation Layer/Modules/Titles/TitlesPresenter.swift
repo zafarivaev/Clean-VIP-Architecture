@@ -15,6 +15,9 @@ protocol TitlesPresenter: class {
     func interactor(didAddTitle title: Title)
     func interactor(didFailAddTitle error: Error)
     
+    func interactor(didDeleteTitleAtIndex index: Int)
+    func interactor(didFailDeleteTitleAtIndex index: Int)
+    
     func interactor(didFindTitle title: Title)
 }
 
@@ -34,6 +37,14 @@ class TitlesPresenterImplementation: TitlesPresenter {
         if let titleString = title.text {
             viewController?.presenter(didAddItem: titleString)
         }
+    }
+    
+    func interactor(didDeleteTitleAtIndex index: Int) {
+        viewController?.presenter(didDeleteItemAtIndex: index)
+    }
+    
+    func interactor(didFailDeleteTitleAtIndex index: Int) {
+        viewController?.presenter(didFailDeleteItemAtIndex: index, message: "Couldn't delete")
     }
     
     func interactor(didFailAddTitle error: Error) {

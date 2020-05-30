@@ -11,6 +11,7 @@ import CoreData
 protocol TitlesService: class {
     func getTitles() throws -> [Title]
     func addTitle(text: String) throws -> Title
+    func deleteTitle(with id: String) throws
     func getTitle(with id: String) throws -> Title?
 }
 
@@ -49,6 +50,27 @@ class TitlesServiceImplementation: TitlesService {
         }
         
         return title
+    }
+    
+    func deleteTitle(with id: String) throws {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Title")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", id)
+        
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            
+            if let objectToDelete = result.first as? NSManagedObject {
+                managedContext.delete(objectToDelete)
+                
+                do {
+                    try managedContext.save()
+                } catch {
+                    print(error)
+                }
+            }
+        } catch {
+            print(error)
+        }
     }
     
     func getTitle(with id: String) throws -> Title? {

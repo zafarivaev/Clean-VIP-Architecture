@@ -15,6 +15,9 @@ protocol TitlesPresenterOutput: class {
     func presenter(didAddItem item: String)
     func presenter(didFailAddItem message: String)
     
+    func presenter(didDeleteItemAtIndex index: Int)
+    func presenter(didFailDeleteItemAtIndex index: Int, message: String)
+    
     func presenter(didObtainItemId id: String)
     func presenter(didFailObtainItemId message: String)
 }
@@ -96,7 +99,7 @@ extension TitlesViewController: TitlesPresenterOutput {
     
     func presenter(didRetrieveItems items: [String]) {
         self.items = items
-        self.titlesView?.reloadTableView()
+        self.titlesView?.tableView.reloadData()
     }
     
     func presenter(didFailRetrieveItems message: String) {
@@ -110,6 +113,16 @@ extension TitlesViewController: TitlesPresenterOutput {
     }
     
     func presenter(didFailAddItem message: String) {
+        // Show error alert
+        print(message)
+    }
+    
+    func presenter(didDeleteItemAtIndex index: Int) {
+        self.items.remove(at: index)
+        self.titlesView?.deleteRow(at: index)
+    }
+    
+    func presenter(didFailDeleteItemAtIndex index: Int, message: String) {
         // Show error alert
         print(message)
     }
@@ -132,6 +145,10 @@ extension TitlesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
+        self.items.isEmpty ?
+            self.titlesView?.showPlaceholder() :
+            self.titlesView?.hidePlaceholder()
+        
         return self.items.count
     }
     
@@ -142,6 +159,12 @@ extension TitlesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = self.items[indexPath.row]
         cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.interactor?.didCommitDelete(for: indexPath.row)
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
