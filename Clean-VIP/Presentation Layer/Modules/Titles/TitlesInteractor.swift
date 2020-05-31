@@ -8,9 +8,7 @@
 
 import Foundation
 
-protocol TitlesInteractor: class {
-    var presenter: TitlesPresenter? { get }
-    
+protocol TitlesInteractor: class {    
     func viewDidLoad()
     func addTapped(with text: String)
     
