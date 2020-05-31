@@ -99,7 +99,7 @@ extension TitlesViewController: TitlesPresenterOutput {
     
     func presenter(didRetrieveItems items: [String]) {
         self.items = items
-        self.titlesView?.tableView.reloadData()
+        self.titlesView?.reloadTableView()
     }
     
     func presenter(didFailRetrieveItems message: String) {

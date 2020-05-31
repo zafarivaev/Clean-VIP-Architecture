@@ -35,6 +35,10 @@ class TitlesView: UIView {
         }
     }
     
+    public func reloadTableView() {
+        self.tableView.reloadData()
+    }
+    
     public func insertRow(at index: Int, section: Int = 0) {
         self.tableView.beginUpdates()
         self.tableView.insertRows(at: [
